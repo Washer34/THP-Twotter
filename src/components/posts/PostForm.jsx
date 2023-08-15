@@ -45,6 +45,7 @@ const PostForm = ({ reloadPostsList }) => {
           className="form-control"
           id="post"
           value={postContent}
+          placeholder='Quoi de neuf ?!'
           onChange={(e) => setPostContent(e.target.value)} />
         <button type="submit" className="btn btn-primary">
           Poster

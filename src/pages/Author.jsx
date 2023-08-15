@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 import { useAtom } from 'jotai';
 import { loginAtom } from '../components/auth/loginAtom';
 import Card from 'react-bootstrap/Card';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 
 const Author = () => {
   const [username, setUsername] = useState('')
@@ -133,9 +135,13 @@ const Author = () => {
             <Card.Body>
               <Card.Subtitle>{formattedDate}</Card.Subtitle>
               <Card.Text>
-                <p>{post.text}</p>
-                <p>nombre de likes : {post.like}</p>
+                <div>
+                  {post.text}
+                </div>
               </Card.Text>
+              <div className="d-flex align-items-center">
+                <FontAwesomeIcon className='btn-like' icon={faThumbsUp} style={{ color: "#f6f6f6" }} /> {post.like}
+              </div>
             </Card.Body>
           </Card>
         )

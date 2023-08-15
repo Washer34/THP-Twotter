@@ -9,7 +9,7 @@ const Accueil = () => {
   const [loginState] = useAtom(loginAtom);
 
   return (
-    <div className="container mt-5">
+    <>
       {loginState.isLoggedIn ? (
         <div>
           <p>Bonjour {loginState.username}, qu'allez-vous poster aujourd'hui ?</p>
@@ -21,7 +21,7 @@ const Accueil = () => {
         </div>
       )
       }
-    </div>
+    </>
   );
 }
 

@@ -4,6 +4,8 @@ import { useAtom } from 'jotai';
 import { loginAtom } from '../auth/loginAtom';
 import PostForm from './PostForm';
 import { Link } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faThumbsUp, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 const PostsList = () => {
   const [posts, setPosts] = useState([])
@@ -76,8 +78,8 @@ const PostsList = () => {
       const userHasLiked = currentUsersLikes.some(userId => userId === loginState.userId.toString());
 
       const newUsersLikes = userHasLiked
-        ? currentUsersLikes.filter(userId => userId !== loginState.userId.toString()) // Dislike
-        : [...currentUsersLikes, loginState.userId.toString()]; // Like
+        ? currentUsersLikes.filter(userId => userId !== loginState.userId.toString())
+        : [...currentUsersLikes, loginState.userId.toString()];
 
 
       const likeData = {
@@ -124,20 +126,30 @@ const PostsList = () => {
               <Card.Body>
                 <Card.Title>
                   <Link to={`/profil/${post.attributes.user.data.id}`}>
-                    {post.attributes.user.data.attributes.username}
+                    <span className="username-capitalize">
+                      {post.attributes.user.data.attributes.username}
+                    </span>
                   </Link>
                 </Card.Title>
                 <Card.Text>
-                  <div>{post.attributes.text}</div>
-                  <div>nombre de likes : {post.attributes.like}</div>
+                  <div>
+                    {post.attributes.text}
+                  </div>
                 </Card.Text>
-                <button onClick={() => handleLike(post.id, post.attributes.like)}>{userHasLiked ? 'Dislike' : 'Like'}</button>
+                <div className="d-flex align-items-center">
+                  {userHasLiked ? (
+                    <FontAwesomeIcon className='btn-like' onClick={() => handleLike(post.id, post.attributes.like)} icon={faThumbsUp} style={{ color: "#e74c32" }} />
+                  ) : (
+                    <FontAwesomeIcon className='btn-like' onClick={() => handleLike(post.id, post.attributes.like)} icon={faThumbsUp} style={{ color: "#f6f6f6" }} />
+                  )}
+                  <span className="ml-2">{post.attributes.like}</span>
+                  {post.attributes.user.data.attributes.username === loginState.username ? (
+                    <FontAwesomeIcon className='btn-delete' icon={faTrash} style={{ color: "#e74c32" }} onClick={() => handleDelete(post.id)} />
+                  ) : (
+                    ''
+                  )}
+                </div>
               </Card.Body>
-              {post.attributes.user.data.attributes.username === loginState.username ? (
-                <button onClick={() => handleDelete(post.id)}> supprimer </button>
-              ) : (
-                ''
-              )}
             </Card>
           )
         })}

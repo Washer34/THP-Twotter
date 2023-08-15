@@ -1,0 +1,135 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #0C0B0B;
+  color: #F6F6F6
+}
+
+.btn {
+  background-color: #E74C32;
+  border: none;
+}
+
+.btn:hover {
+  background-color: #e22908;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: #E74C32;
+}
+
+.navbar {
+  height: 80vh;
+  position: fixed;
+  top: 0;
+  left: auto;
+  flex-direction: column;
+}
+
+.navbar a {
+  color: #F6F6F6;
+  text-decoration: none;
+  padding: 1rem;
+  transition: background-color 0.3s;
+}
+
+.navbar a:hover {
+  color: #E74C32;
+  text-decoration: none;
+  padding: 1rem;
+  transition: background-color 0.3s;
+}
+
+.fa-house,
+.fa-user {
+  margin-right: 1em;
+}
+
+#app {
+  margin-left: 250px;
+  padding: 1rem;
+  width: calc(100% - 250px);
+}
+
+.custom-title {
+  color: #E74C32
+}
+
+.twotter-logo {
+  padding-left: 2rem;
+}
+
+
+.card {
+  background-color: rgba(34, 34, 34, 0.6);
+  transition: background-color 0.3s;
+}
+
+.card:hover {
+  background-color: rgba(34, 34, 34, 1);
+}
+
+.username-capitalize {
+  text-transform: capitalize;
+}
+
+.card-title {
+  color: #E74C32;
+}
+
+.card-title a {
+  text-decoration: none;
+  color: #E74C32;
+}
+
+.card-subtitle {
+  color: #E74C32;
+}
+
+.card-text,
+.card-body {
+  color: #F6F6F6;
+}
+
+.btn-like {
+  transition: transform 0.3s;
+  cursor: pointer;
+  margin-right: 1rem;
+}
+
+.btn-like:hover {
+  transform: scale(1.2);
+}
+
+.btn-delete {
+  transition: transform 0.3s;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.btn-delete:hover {
+  transform: scale(1.2);
+}
+
+.form-control {
+  background-color: rgb(34, 34, 34);
+  border: none;
+  color: #F6F6F6;
+}
+
+.form-control:focus {
+  background-color: rgb(34, 34, 34);
+  border: none;
+  color: #F6F6F6;
+}
+
+.form-control::placeholder {
+  color: #F6F6F6;
+  opacity: 25%;
+}

@@ -10,6 +10,7 @@ import Author from './pages/Author';
 import { useAtom } from 'jotai';
 import { loginAtom } from './components/auth/loginAtom';
 import Cookies from 'js-cookie';
+import './style.css'
 
 const App = () => {
   const [loginState, setLoginState] = useAtom(loginAtom);
@@ -29,14 +30,20 @@ const App = () => {
 
   return (
     <Router>
-      <div id='app'>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Accueil />} />
-          <Route path="/profil/:userid" element={<Author />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
-        </Routes>
+      <div id='app' className="container mt-5">
+        <div className="row justify-content-center">
+          <div className="col-md-2">
+            <Navbar />
+          </div>
+          <div className="col-md-7">
+            <Routes>
+              <Route path="/" element={<Accueil />} />
+              <Route path="/profil/:userid" element={<Author />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/login" element={<Login />} />
+            </Routes>
+          </div>
+        </div>
       </div>
     </Router>
   )
